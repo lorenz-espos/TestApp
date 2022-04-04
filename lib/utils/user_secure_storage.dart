@@ -3,21 +3,20 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 class UserSecureStorage {
   static final _storage = FlutterSecureStorage();
 
-  static const _keyUsername = 'username';
-  static const _keySurname = 'surname';
+  static const _keyID = 'ID';
+  static const _keyEmail = 'email';
   static const _keyBirthday = 'birthday';
 
-  static Future setUsername(String username) async =>
-      await _storage.write(key: _keyUsername, value: username);
+  static Future setID(String username) async =>
+      await _storage.write(key: _keyID, value: username);
 
-  static Future setSurname(String surname) async =>
-      await _storage.write(key: _keySurname, value: surname);
+  static Future setEmail(String surname) async =>
+      await _storage.write(key: _keyEmail, value: surname);
 
-  static Future<String?> getUsername() async =>
-      await _storage.read(key: _keyUsername);
+  static Future<String?> getID() async => await _storage.read(key: _keyID);
 
-  static Future<String?> getSurname() async =>
-      await _storage.read(key: _keySurname);
+  static Future<String?> getEmail() async =>
+      await _storage.read(key: _keyEmail);
 
   static Future setBirthday(DateTime dateOfBirth) async {
     final birthday = dateOfBirth.toIso8601String();

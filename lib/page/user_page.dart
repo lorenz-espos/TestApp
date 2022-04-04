@@ -11,8 +11,8 @@ class UserPage extends StatefulWidget {
 
 class _UserPageState extends State<UserPage> {
   final formKey = GlobalKey<FormState>();
-  final controllerName = TextEditingController();
-  final controllerSurname = TextEditingController();
+  final controllerID = TextEditingController();
+  final controllerEmail = TextEditingController();
   DateTime? birthday;
 
   @override
@@ -23,13 +23,13 @@ class _UserPageState extends State<UserPage> {
   }
 
   Future init() async {
-    final name = await UserSecureStorage.getUsername() ?? '';
-    final surname = await UserSecureStorage.getSurname() ?? '';
+    final name = await UserSecureStorage.getID() ?? '';
+    final surname = await UserSecureStorage.getEmail() ?? '';
     final birthday = await UserSecureStorage.getBirthday();
 
     setState(() {
-      this.controllerName.text = name;
-      this.controllerSurname.text = surname;
+      this.controllerID.text = name;
+      this.controllerEmail.text = surname;
       this.birthday = birthday;
     });
   }
@@ -40,7 +40,8 @@ class _UserPageState extends State<UserPage> {
           child: ListView(
             padding: EdgeInsets.all(16),
             children: [
-              TitleWidget(icon: Icons.lock, text: 'Test App'),
+              TitleWidget(
+                  icon: Icons.enhanced_encryption_rounded, text: 'Test App'),
               const SizedBox(height: 32),
               buildName(),
               const SizedBox(height: 32),
@@ -55,12 +56,12 @@ class _UserPageState extends State<UserPage> {
       );
 
   Widget buildName() => buildTitle(
-        title: 'Name',
+        title: 'ID Number',
         child: TextFormField(
-          controller: controllerName,
+          controller: controllerID,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Your Name',
+            hintText: 'Your ID number',
           ),
         ),
       );
@@ -74,20 +75,20 @@ class _UserPageState extends State<UserPage> {
         ),
       );
   Widget buildSurname() => buildTitle(
-        title: 'Surname',
+        title: 'Email',
         child: TextFormField(
-          controller: controllerSurname,
+          controller: controllerEmail,
           decoration: InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Your Surname',
+            hintText: 'Your Email Address',
           ),
         ),
       );
   Widget buildButton() => ButtonWidget(
       text: 'Save',
       onClicked: () async {
-        await UserSecureStorage.setUsername(controllerName.text);
-        await UserSecureStorage.setSurname(controllerSurname.text);
+        await UserSecureStorage.setID(controllerID.text);
+        await UserSecureStorage.setEmail(controllerEmail.text);
         //await UserSecureStorage.setPets(pets);
 
         if (birthday != null) {

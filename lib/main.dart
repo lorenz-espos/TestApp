@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         title: title,
         theme: ThemeData(
           colorScheme: ColorScheme.dark(),
-          scaffoldBackgroundColor: Colors.redAccent,
+          scaffoldBackgroundColor: Colors.deepOrangeAccent,
           accentColor: Colors.white38,
           unselectedWidgetColor: Colors.white12,
           switchTheme: SwitchThemeData(
