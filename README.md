@@ -1,5 +1,5 @@
 # TestApp
-Test App è un app che immagazzina dei dati sensibili sfruttando il plugin flutter_secure_storage per crittografarli, è un app sviluppata a scopo ditattico per il mio elaborato triennale.
+Test App è un app che immagazzina dei dati sensibili sfruttando il plugin flutter_secure_storage per crittografarli, è un app sviluppata a scopo didattico per il mio elaborato di tesi triennale.
 
 
 <img width="456" alt="Schermata 2022-04-12 alle 16 36 16" src="https://user-images.githubusercontent.com/72261684/162996355-1f94d3fd-92f6-41d3-a831-3b62128948d4.png">
